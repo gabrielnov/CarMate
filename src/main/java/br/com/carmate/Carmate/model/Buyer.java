@@ -20,7 +20,6 @@ public class Buyer {
 	private String adress;
 
 	
-
 	public Long getBuyerId() {
 		return buyerId;
 	}

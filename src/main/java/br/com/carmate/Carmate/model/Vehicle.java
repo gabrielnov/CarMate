@@ -18,6 +18,7 @@ public class Vehicle {
 	private String model;
 	private String color;
 	private LocalDate year;
+	private VehicleType vehicleType;
 
 	public Long getVehicleId() {
 		return vehicleId;
@@ -66,5 +67,15 @@ public class Vehicle {
 	public void setYear(LocalDate year) {
 		this.year = year;
 	}
+
+	public VehicleType getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(VehicleType vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+	
+	
 
 }
