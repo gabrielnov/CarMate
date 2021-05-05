@@ -32,9 +32,7 @@ public class Purchase {
 
 	public void setPurchaseId(Long purchaseId) {
 		this.purchaseId = purchaseId;
-	}
-
-	
+	}	
 
 	public List<Vehicle> getVehicles() {
 		return vehicles;

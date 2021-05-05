@@ -20,7 +20,7 @@ public class Sale {
 	private Vehicle vehicle = new Vehicle();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Buyer buyer = new Buyer();	
+	private Customer customer = new Customer();	
 	
 	private BigDecimal saleValue;
 
@@ -40,12 +40,12 @@ public class Sale {
 		this.vehicle = vehicle;
 	}
 
-	public Buyer getBuyer() {
-		return buyer;
+	public Customer getBuyer() {
+		return customer;
 	}
 
-	public void setBuyer(Buyer buyer) {
-		this.buyer = buyer;
+	public void setBuyer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public BigDecimal getSaleValue() {
