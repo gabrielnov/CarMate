@@ -6,22 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Provider {
+public class Supplier {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long providerId;
+	private long id;
 	private String companyName;
 	private String phoneNumber;
 	private String adress;
 
 	
-	public long getProviderId() {
-		return providerId;
+	public long getId() {
+		return id;
 	}
 
-	public void setProviderId(long providerId) {
-		this.providerId = providerId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getCompanyName() {

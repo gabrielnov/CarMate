@@ -24,7 +24,7 @@ public class Purchase {
 	private List<Vehicle> vehicles = new ArrayList<>();
 
 	@OneToOne
-	private Provider provider = new Provider();
+	private Supplier supplier = new Supplier();
 
 	public Long getPurchaseId() {
 		return purchaseId;
@@ -42,12 +42,12 @@ public class Purchase {
 		this.vehicles = vehicles;
 	}
 
-	public Provider getProvider() {
-		return provider;
+	public Supplier getProvider() {
+		return supplier;
 	}
 
-	public void setProvider(Provider provider) {
-		this.provider = provider;
+	public void setProvider(Supplier supplier) {
+		this.supplier = supplier;
 	}
 
 }
