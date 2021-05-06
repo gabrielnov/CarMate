@@ -34,17 +34,11 @@ public class SuppliersController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Supplier>> findById(@PathVariable Long id) {
+	public ResponseEntity<Supplier> findById(@PathVariable Long id) {
 	
-		Optional<Supplier> supplier = null;
-		try {
-			supplier = suppliersService.findById(id);
-		} catch (NotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// TODO properly treat this exception
-		return ResponseEntity.ok().body(supplier);
+		return suppliersService.findById(id)
+				.map(ResponseEntity::ok)
+				.orElseGet(() -> ResponseEntity.notFound().build());
 		
 	}
 

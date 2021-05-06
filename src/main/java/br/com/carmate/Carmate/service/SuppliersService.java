@@ -20,14 +20,10 @@ public class SuppliersService {
 		return repository.findAll();		
 	}
 
-	public Optional<Supplier> findById(Long id) throws NotFoundException {
+	public Optional<Supplier> findById(Long id) {
 		
 		Optional<Supplier> supplier = repository.findById(id);
-		
-		if(supplier == null) {
-			throw new NotFoundException("Supplier not found");
-		}
-		
+					
 		return supplier;
 		
 	}
