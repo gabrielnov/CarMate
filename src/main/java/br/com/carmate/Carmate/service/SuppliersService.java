@@ -22,11 +22,7 @@ public class SuppliersService {
 	}
 
 	public Optional<Supplier> findById(Long id) {
-		
-		//TODO add Exception in case of null supplier
-		
-		Optional<Supplier> supplier = repository.findById(id);
-		
-		return supplier;
+				
+		return repository.findById(id);
 	}
 }

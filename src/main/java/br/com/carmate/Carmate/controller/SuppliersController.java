@@ -33,13 +33,14 @@ public class SuppliersController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Supplier>> findById(@PathVariable Long id){
+	public ResponseEntity<Supplier> findById(@PathVariable Long id){
 	
-		Optional<Supplier> supplier = suppliersService.findById(id);
+			return suppliersService.findById(id)
+				.map(ResponseEntity::ok)
+				.orElseGet(() -> ResponseEntity.noContent().build());
 		
-		// TODO treat optional exception
-		return ResponseEntity.ok().body(supplier);		
 	}
 
+	
 	
 }
