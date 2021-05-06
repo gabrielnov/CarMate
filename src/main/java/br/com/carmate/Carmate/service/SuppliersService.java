@@ -12,6 +12,8 @@ import javassist.NotFoundException;
 
 @Service
 public class SuppliersService {
+	
+	
 
 	@Autowired
 	SupplierRepository repository;
@@ -26,5 +28,10 @@ public class SuppliersService {
 					
 		return supplier;
 		
+	}
+	
+	public Supplier saveSupplier(Supplier supplier) {
+			
+		return repository.save(supplier);
 	}
 }
