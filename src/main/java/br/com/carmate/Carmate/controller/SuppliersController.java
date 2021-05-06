@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.carmate.Carmate.model.Supplier;
 import br.com.carmate.Carmate.repository.SupplierRepository;
 import br.com.carmate.Carmate.service.SuppliersService;
+import javassist.NotFoundException;
 
 @RestController
 @RequestMapping("api/suppliers")
@@ -33,11 +34,17 @@ public class SuppliersController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Supplier> findById(@PathVariable Long id){
+	public ResponseEntity<Optional<Supplier>> findById(@PathVariable Long id) {
 	
-			return suppliersService.findById(id)
-				.map(ResponseEntity::ok)
-				.orElseGet(() -> ResponseEntity.noContent().build());
+		Optional<Supplier> supplier = null;
+		try {
+			supplier = suppliersService.findById(id);
+		} catch (NotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// TODO properly treat this exception
+		return ResponseEntity.ok().body(supplier);
 		
 	}
 

@@ -6,4 +6,5 @@ import br.com.carmate.Carmate.model.Supplier;
 
 public interface SupplierRepository extends JpaRepository<Supplier, Long>{
 
+
 }

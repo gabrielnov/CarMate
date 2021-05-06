@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.carmate.Carmate.model.Supplier;
 import br.com.carmate.Carmate.repository.SupplierRepository;
+import javassist.NotFoundException;
 
 @Service
 public class SuppliersService {
@@ -16,13 +17,18 @@ public class SuppliersService {
 	SupplierRepository repository;
 
 	public List<Supplier> listSuppliers() {
-		return repository.findAll();
-		
-		
+		return repository.findAll();		
 	}
 
-	public Optional<Supplier> findById(Long id) {
-				
-		return repository.findById(id);
+	public Optional<Supplier> findById(Long id) throws NotFoundException {
+		
+		Optional<Supplier> supplier = repository.findById(id);
+		
+		if(supplier == null) {
+			throw new NotFoundException("Supplier not found");
+		}
+		
+		return supplier;
+		
 	}
 }
