@@ -59,7 +59,7 @@ public class SuppliersController {
 		supplier = suppliersService.saveSupplier(supplier);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(supplier.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping("/{id}")
@@ -78,8 +78,8 @@ public class SuppliersController {
 					return repository.save(newSupplier);
 				});
 		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(updatedSupplier.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+		
+		return ResponseEntity.ok().build();
 				
 	}
 	
