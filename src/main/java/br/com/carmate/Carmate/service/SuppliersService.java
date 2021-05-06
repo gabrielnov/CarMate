@@ -8,12 +8,9 @@ import org.springframework.stereotype.Service;
 
 import br.com.carmate.Carmate.model.Supplier;
 import br.com.carmate.Carmate.repository.SupplierRepository;
-import javassist.NotFoundException;
 
 @Service
-public class SuppliersService {
-	
-	
+public class SuppliersService {   
 
 	@Autowired
 	SupplierRepository repository;
