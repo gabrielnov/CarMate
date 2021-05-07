@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -66,7 +67,7 @@ public class SuppliersController {
 	@Transactional
 	public ResponseEntity<?> replaceSuppliers (@PathVariable Long id, @RequestBody Supplier newSupplier){
 	
-		Supplier updatedSupplier = repository.findById(id)
+		Supplier updatedSupplier = repository.findById(id) // TODO find an alternative to this
 				.map(supplier -> {
 					supplier.setAdress(newSupplier.getAdress());
 					supplier.setCompanyName(newSupplier.getCompanyName());
@@ -83,4 +84,19 @@ public class SuppliersController {
 				
 	}
 	
+	@DeleteMapping("/{id}")
+	@Transactional
+	public ResponseEntity<?> deleteSuppliers(@PathVariable Long id){		
+		
+		Optional<Supplier> supplier = repository.findById(id);
+		
+		if(supplier.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		suppliersService.deleteSupplier(id);
+		return ResponseEntity.ok().build();
+		
+		
+	}
 }
