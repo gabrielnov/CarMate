@@ -1,6 +1,5 @@
 package br.com.carmate.Carmate.controller;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.carmate.Carmate.model.Supplier;
 import br.com.carmate.Carmate.repository.SupplierRepository;
@@ -77,8 +75,7 @@ public class SuppliersController {
 		}
 		
 		suppliersService.deleteSupplier(id);
-		return ResponseEntity.ok().build();
-		
+		return ResponseEntity.ok().build();		
 		
 	}
 }
