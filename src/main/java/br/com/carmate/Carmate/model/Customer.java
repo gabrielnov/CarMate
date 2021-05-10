@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Entity
 public class Customer {
 
@@ -15,7 +18,9 @@ public class Customer {
 	private Long buyerId;
 	private String name;
 	private LocalDate registerDate;
+	
 	private LocalDate birthDate;
+	
 	private String phoneNumber;
 	private String adress;
 
@@ -41,7 +46,7 @@ public class Customer {
 	}
 
 	public void setRegisterDate(LocalDate registerDate) {
-		this.registerDate = registerDate;
+		this.registerDate = LocalDate.now();
 	}
 
 	public LocalDate getBirthDate() {

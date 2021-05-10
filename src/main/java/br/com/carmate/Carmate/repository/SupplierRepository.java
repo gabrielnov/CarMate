@@ -8,6 +8,6 @@ import br.com.carmate.Carmate.model.Supplier;
 
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Long>{
-	Customer findFirstById(Long id);
+
 	
 }
