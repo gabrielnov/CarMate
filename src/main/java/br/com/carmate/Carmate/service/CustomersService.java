@@ -23,8 +23,7 @@ public class CustomersService {
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Customer> findById(@PathVariable Long id) {
-	
+	public Optional<Customer> findById(@PathVariable Long id) {	
 		Optional<Customer> customer = customerRepository.findById(id);
 		
 		return customer;

@@ -12,7 +12,7 @@ public class Vehicle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long vehicleId;
+	private Long id;
 	private String plate;
 	private String brand;
 	private String model;
@@ -20,12 +20,13 @@ public class Vehicle {
 	private LocalDate year;
 	private VehicleType vehicleType;
 
-	public Long getVehicleId() {
-		return vehicleId;
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setVehicleId(Long vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getPlate() {

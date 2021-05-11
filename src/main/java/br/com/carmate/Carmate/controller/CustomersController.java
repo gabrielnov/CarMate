@@ -35,29 +35,26 @@ public class CustomersController {
 	
 	
 	@GetMapping
-	public ResponseEntity<List<Customer>> listCustomers(){
+	public ResponseEntity<List<Customer>> listCustomers(){		
 		return ResponseEntity.ok().body(customersService.listCustomers());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Customer> findById(@PathVariable Long id) {
-		
+	public ResponseEntity<Customer> findCustomerById(@PathVariable Long id) {		
 		return customersService.findById(id)
 				.map(ResponseEntity::ok)
 				.orElseGet(() -> ResponseEntity.notFound().build());
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> save(@RequestBody Customer customer){
-		
+	public ResponseEntity<?> newCustomer(@RequestBody Customer customer){		
 		customersService.saveCustomer(customer);		
 		return ResponseEntity.ok().build();
 	}
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> deleteCustomers(@PathVariable Long id){		
-		
+	public ResponseEntity<?> deleteCustomer(@PathVariable Long id){				
 		Optional<Customer> supplier = customerRepository.findById(id);
 		
 		if(supplier.isEmpty()) {

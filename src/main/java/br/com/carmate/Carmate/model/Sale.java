@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Sale {
 
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long saleId;
+	private Long id;
 	
 	@OneToOne // TODO verify this assignment
 	private Vehicle vehicle = new Vehicle();
@@ -24,12 +24,21 @@ public class Sale {
 	
 	private BigDecimal saleValue;
 
-	public Long getSaleId() {
-		return saleId;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setSaleId(Long saleId) {
-		this.saleId = saleId;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public Vehicle getVehicle() {

@@ -12,7 +12,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long buyerId;
+	private Long id;
 	private String name;
 	private LocalDate registerDate;
 	
@@ -20,14 +20,14 @@ public class Customer {
 	
 	private String phoneNumber;
 	private String adress;
-
 	
-	public Long getBuyerId() {
-		return buyerId;
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setBuyerId(Long buyerId) {
-		this.buyerId = buyerId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {

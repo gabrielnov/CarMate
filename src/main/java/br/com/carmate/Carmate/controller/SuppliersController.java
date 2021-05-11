@@ -41,8 +41,7 @@ public class SuppliersController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Supplier> findById(@PathVariable Long id) {
-	
+	public ResponseEntity<Supplier> findSupplierById(@PathVariable Long id) {	
 		return suppliersService.findById(id)
 				.map(ResponseEntity::ok)
 				.orElseGet(() -> ResponseEntity.notFound().build());
@@ -50,7 +49,7 @@ public class SuppliersController {
 	}
 
 	@PostMapping
-	public ResponseEntity<?> save(@RequestBody Supplier supplier){
+	public ResponseEntity<?> newSupplier(@RequestBody Supplier supplier){
 		
 		suppliersService.saveSupplier(supplier);		
 		return ResponseEntity.ok().build();
@@ -58,16 +57,14 @@ public class SuppliersController {
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> replaceSuppliers (@PathVariable Long id, @RequestBody Supplier newSupplier){
-			
+	public ResponseEntity<?> updateSupplier(@PathVariable Long id, @RequestBody Supplier newSupplier){			
 		suppliersService.updateSupplier(id, newSupplier);
 		return ResponseEntity.ok().build();						
 	}
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> deleteSuppliers(@PathVariable Long id){		
-		
+	public ResponseEntity<?> deleteSupplier(@PathVariable Long id){				
 		Optional<Supplier> supplier = supplierRepository.findById(id);
 		
 		if(supplier.isEmpty()) {
