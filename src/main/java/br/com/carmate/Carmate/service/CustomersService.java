@@ -1,5 +1,6 @@
 package br.com.carmate.Carmate.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,8 @@ public class CustomersService {
 		return customer;
 	}
 
-	public Customer saveSupplier(Customer customer) {
+	public Customer saveCustomer(Customer customer) {
+		customer.setRegisterDate(LocalDate.now());
 		return customerRepository.save(customer);
 		
 	}

@@ -50,7 +50,7 @@ public class CustomersController {
 	@PostMapping
 	public ResponseEntity<?> save(@RequestBody Customer customer){
 		
-		customersService.saveSupplier(customer);		
+		customersService.saveCustomer(customer);		
 		return ResponseEntity.ok().build();
 	}
 	
