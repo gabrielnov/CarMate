@@ -1,11 +1,11 @@
 package br.com.carmate.Carmate.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vehicle {
@@ -17,9 +17,11 @@ public class Vehicle {
 	private String brand;
 	private String model;
 	private String color;
-	private LocalDate year;
+	private String year;
 	private VehicleType vehicleType;
 
+	@ManyToOne
+	private VehiclesSupplier vehiclesSupplier;
 	
 	public Long getId() {
 		return id;
@@ -61,11 +63,11 @@ public class Vehicle {
 		this.color = color;
 	}
 
-	public LocalDate getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(LocalDate year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
@@ -77,6 +79,13 @@ public class Vehicle {
 		this.vehicleType = vehicleType;
 	}
 	
+	public VehiclesSupplier getVehiclesSupplier() {
+		return vehiclesSupplier;
+	}
+
+	public void setVehiclesSupplier(VehiclesSupplier vehiclesSupplier) {
+		this.vehiclesSupplier = vehiclesSupplier;
+	}
 	
 
 }

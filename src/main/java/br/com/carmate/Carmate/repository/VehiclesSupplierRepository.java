@@ -3,10 +3,10 @@ package br.com.carmate.Carmate.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.carmate.Carmate.model.Supplier;
+import br.com.carmate.Carmate.model.VehiclesSupplier;
 
 @Repository
-public interface SupplierRepository extends JpaRepository<Supplier, Long>{
+public interface VehiclesSupplierRepository extends JpaRepository<VehiclesSupplier, Long>{
 
 	
 }

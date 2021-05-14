@@ -32,8 +32,7 @@ public class CustomersController {
 	public void setCustomersService(CustomersService customersService) {
 		this.customersService = customersService;
 	}
-	
-	
+		
 	@GetMapping
 	public ResponseEntity<List<Customer>> listCustomers(){		
 		return ResponseEntity.ok().body(customersService.listCustomers());
