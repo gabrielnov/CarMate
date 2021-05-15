@@ -38,4 +38,11 @@ public class CustomersService {
 	public void deleteSupplier(Long id) {
 		customerRepository.deleteById(id);				
 	}
+
+	public Customer updateCustomer(Long id, Customer customer) {
+		customer.setId(id);		
+		return customerRepository.save(customer);
+
+		
+	}
 }

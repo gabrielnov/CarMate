@@ -16,7 +16,7 @@ public class Sale {
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne // TODO verify this assignment
+	@OneToOne // TODO change this to list of vehicles
 	private Vehicle vehicle = new Vehicle();
 	
 	@ManyToOne(fetch = FetchType.LAZY)

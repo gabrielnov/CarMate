@@ -56,8 +56,8 @@ public class VehiclesSuppliersController {
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> updateSupplier(@PathVariable Long id, @RequestBody VehiclesSupplier newVehiclesSupplier){			
-		vehiclesSuppliersService.updateVehiclesSupplier(id, newVehiclesSupplier);
+	public ResponseEntity<?> updateVehicleSupplier(@PathVariable Long id, @RequestBody VehiclesSupplier vehiclesSupplier){			
+		vehiclesSuppliersService.updateVehiclesSupplier(id, vehiclesSupplier);
 		return ResponseEntity.ok().build();						
 	}
 	

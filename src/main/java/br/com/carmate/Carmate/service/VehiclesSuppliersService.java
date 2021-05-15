@@ -35,10 +35,10 @@ public class VehiclesSuppliersService {
 		
 	}
 
-	public VehiclesSupplier updateVehiclesSupplier(Long id, VehiclesSupplier newSupplier) {		
-		newSupplier.setId(id);
+	public VehiclesSupplier updateVehiclesSupplier(Long id, VehiclesSupplier vehiclesSupplier) {		
+		vehiclesSupplier.setId(id);
 		
-		return vehiclesSupplierRepository.save(newSupplier);
+		return vehiclesSupplierRepository.save(vehiclesSupplier);
 
 	}
 }
