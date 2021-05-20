@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -47,16 +48,16 @@ public class CustomersController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> newCustomer(@RequestBody Customer customer){		
+	public ResponseEntity<?> newCustomer(@Valid @RequestBody Customer customer){		
 		customersService.saveCustomer(customer);		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.noContent().build();	
 	}
 	
 	@PutMapping
 	@Transactional
 	public ResponseEntity<?> updateCustomer(@PathVariable Long id, @RequestBody Customer customer){			
 		customersService.updateCustomer(id, customer);
-		return ResponseEntity.ok().build();						
+		return ResponseEntity.noContent().build();				
 	}
 	
 	@DeleteMapping("/{id}")
@@ -69,6 +70,7 @@ public class CustomersController {
 		}
 		
 		customersService.deleteSupplier(id);
+		
 		return ResponseEntity.ok().build();
 				
 	}

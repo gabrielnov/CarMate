@@ -6,21 +6,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Customer {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotEmpty(message = "Name cannot be empty")
+	@Size(min=2, max=30, message = "Name must contain 2 to 30 characters")
 	private String name;
+
 	private LocalDate registerDate;
 	
+	@NotNull(message = "Birth date cannot be empty")
 	private LocalDate birthDate;
 	
+	@NotEmpty(message = "Phone number cannot be empty")
 	private String phoneNumber;
-	private String adress;
 	
+	@NotEmpty(message = "Adress number cannot be empty")
+	private String adress;
 	
 	public Long getId() {
 		return id;
